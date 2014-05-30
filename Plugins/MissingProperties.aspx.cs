@@ -41,7 +41,9 @@ namespace Nergard.EPi.Plugins
         {
             base.OnLoad(e);
             this._contentTypeModelRepository = ServiceLocator.Current.GetInstance<ContentTypeModelRepository>();
-            Setup();
+            
+            if (!IsPostBack)
+                Setup();
         }
 
         private void Setup()
